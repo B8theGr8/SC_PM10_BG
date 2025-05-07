@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PM10 Background Plots – Login</title>
+  <style>
+    body { font-family: sans-serif; display: flex; height: 100vh; margin: 0; }
+    #login, #content { margin: auto; width: 300px; text-align: center; }
+    #content { display: none; }
+    input { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; }
+    button { padding: 8px 16px; }
+    #error { color: red; height: 1.2em; }
+  </style>
+</head>
+<body>
+
+  <div id="login">
+    <h2>Please Log In</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div id="error"></div>
+  </div>
+
+  <div id="content">
+    <h2>Available Reports</h2>
+    <ul style="text-align:left;">
+      <li><a href="PM10_All_Casa Grande (Downtown)_Q4_2022-Q3_2024.html">PM10_All_Casa Grande (Downtown)_Q4_2022-Q3_2024</a></li>
+      <li><a href="PM10_Excluding_NAAQS_Casa Grande (Downtown)_Q4_2022-Q3_2024.html">PM10_Excluding_NAAQS_Casa Grande (Downtown)_Q4_2022-Q3_2024</a></li>
+    </ul>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const user = document.getElementById('username').value;
+      const pass = document.getElementById('password').value;
+      if (user === 'test' && pass === 'santaCruz') {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      } else {
+        document.getElementById('error').textContent = 'Invalid username or password.';
+      }
+    });
+  </script>
+
+</body>
+</html>
